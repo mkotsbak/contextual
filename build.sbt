@@ -7,6 +7,7 @@ lazy val core = project
   .settings(publishSettings: _*)
   .settings(scalaMacroDependencies: _*)
   .settings(moduleName := "contextual")
+  .enablePlugins(ScalaJSPlugin)
 
 lazy val examples = project
   .in(file("examples"))
@@ -14,6 +15,7 @@ lazy val examples = project
   .settings(publishSettings: _*)
   .settings(moduleName := "contextual-examples")
   .settings(quasiQuotesDependencies)
+  .enablePlugins(ScalaJSPlugin)
   .dependsOn(core)
 
 lazy val tests = project
@@ -22,6 +24,7 @@ lazy val tests = project
   .settings(noPublishSettings: _*)
   .settings(moduleName := "contextual-tests")
   .settings(quasiQuotesDependencies)
+  .enablePlugins(ScalaJSPlugin)
   .dependsOn(examples)
 
 lazy val buildSettings = Seq(
